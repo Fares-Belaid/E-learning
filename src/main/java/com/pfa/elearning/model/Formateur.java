@@ -2,8 +2,11 @@ package com.pfa.elearning.model;
 
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -24,4 +27,7 @@ public class Formateur extends Utilisateur{
 	
 	@Column
 	private String specialite;
+	
+	@OneToMany(mappedBy = "formateur")
+	List<Cours> cours;
 }

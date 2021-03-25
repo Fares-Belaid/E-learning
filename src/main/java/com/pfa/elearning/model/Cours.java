@@ -1,12 +1,16 @@
 package com.pfa.elearning.model;
 
 import java.time.Instant;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,4 +44,16 @@ public class Cours {
 	
 	@Column
 	private String categorie;
+	
+	@ManyToOne
+	private Formateur formateur;
+	
+	@ManyToMany
+	private List<Etudiant> etudiants;
+	
+	@ManyToOne
+	private Formateur images;
+	
+	@OneToMany(mappedBy = "cours")
+	private List<Quiz> quiz;
 }

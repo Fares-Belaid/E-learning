@@ -1,6 +1,7 @@
 package com.pfa.elearning.model;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Utilisateur {
+public class Utilisateur implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
