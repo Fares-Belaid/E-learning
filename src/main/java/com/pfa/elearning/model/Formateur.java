@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Builder
 @Table
 public class Formateur extends Utilisateur{
 
@@ -29,5 +31,5 @@ public class Formateur extends Utilisateur{
 	private String specialite;
 	
 	@OneToMany(mappedBy = "formateur")
-	List<Cours> cours;
+	private List<Cours> cours;
 }

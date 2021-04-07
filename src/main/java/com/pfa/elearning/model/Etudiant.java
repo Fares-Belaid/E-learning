@@ -1,12 +1,12 @@
 package com.pfa.elearning.model;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -16,15 +16,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Builder
 @Table
 public class Etudiant extends Utilisateur {
 
 	@Column
 	private String niveau;
-	
-	@Column
-	private String diplome;
-	
-	@ManyToMany(mappedBy = "etudiants")
-	private List<Cours> cours;
+
+	@ManyToOne
+	private Inscription inscriptions;
+
 }
