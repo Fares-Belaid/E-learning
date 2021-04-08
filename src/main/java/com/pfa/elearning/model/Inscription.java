@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -21,6 +24,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Inscription {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long idInscription;
+	
 	@CreatedDate
 	@Column(nullable = false)
 	private Instant DateInscri;

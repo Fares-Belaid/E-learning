@@ -9,6 +9,9 @@ import lombok.Data;
 @Data
 public class QuestionQuizDto {
 
+	
+	private Long id;
+	
 	private String titre;
 
 	private String question;

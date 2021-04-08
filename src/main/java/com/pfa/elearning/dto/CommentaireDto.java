@@ -11,6 +11,9 @@ import lombok.Data;
 @Data
 public class CommentaireDto {
 
+	
+	private Long idCommentaire;
+	
 	private String commentaire;
 
 	private Instant dateCreation;

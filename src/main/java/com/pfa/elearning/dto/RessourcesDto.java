@@ -8,6 +8,8 @@ import lombok.Data;
 @Data
 public class RessourcesDto {
 
+	private Long id;
+	
 	private String ressource;
 
 	private CoursDto cour;

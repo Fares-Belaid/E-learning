@@ -11,6 +11,9 @@ import lombok.Data;
 @Data
 public class QuizDto {
 
+	
+	private Long idQuiz;
+	
 	private String nom;
 
 	private String description;

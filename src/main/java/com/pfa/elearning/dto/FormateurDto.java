@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class FormateurDto {
+public class FormateurDto extends UtilisateurDto{
 
 	
 	private String grade;

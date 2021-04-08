@@ -8,6 +8,9 @@ import lombok.Data;
 @Data
 public class ReclamationDto {
 
+	
+	private Long idReclamation;
+	
 	private String objet;
 
 	private String message;

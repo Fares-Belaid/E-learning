@@ -10,6 +10,9 @@ import lombok.Data;
 @Data
 public class ModuleDto {
 
+	
+	private Long idModule;
+	
 	private String nom;
 
 	private String description;

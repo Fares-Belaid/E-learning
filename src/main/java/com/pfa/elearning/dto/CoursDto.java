@@ -15,6 +15,9 @@ import lombok.Data;
 @Data
 public class CoursDto {
 
+	
+	private Long idCours;
+	
 	private String titreCours;
 	
 	private String 	description;

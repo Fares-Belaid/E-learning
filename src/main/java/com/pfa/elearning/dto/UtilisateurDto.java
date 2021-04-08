@@ -3,14 +3,17 @@ package com.pfa.elearning.dto;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
-import lombok.Builder;
 import lombok.Data;
 
-@Builder
+@MappedSuperclass
 @Data
 public class UtilisateurDto {
 
+	
+	private Long idUtilisateur;
+	
 	private String nom;
 
 	@Column

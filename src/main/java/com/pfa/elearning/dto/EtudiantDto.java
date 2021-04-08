@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class EtudiantDto {
+public class EtudiantDto extends UtilisateurDto {
 
 	private String niveau;
 

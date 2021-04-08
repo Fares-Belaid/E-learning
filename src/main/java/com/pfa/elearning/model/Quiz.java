@@ -4,7 +4,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +24,8 @@ import lombok.NoArgsConstructor;
 
 public class Quiz {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idQuiz;
 	
 	private String nom;
@@ -28,7 +34,7 @@ public class Quiz {
 	
 	private Integer scoreMin;
 	
-	@ManyToMany
+	@ManyToOne
 	private Cours cours;
 	
 	@OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)

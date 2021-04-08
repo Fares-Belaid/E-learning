@@ -13,6 +13,9 @@ import lombok.Data;
 @Data
 public class InscriptionDto {
 
+	
+	private Long idInscription;
+	
 	private Instant DateInscri;
 
 	private List<EtudiantDto> etudiants;
