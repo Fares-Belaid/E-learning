@@ -16,16 +16,10 @@ public class UtilisateurDto {
 	
 	private String nom;
 
-	@Column
 	private String email;
 
-	@Column
-	private String password;
-
-	@Column
 	private String photo;
 
-	@Column
 	private String role;
 
 	private List<ReclamationDto> reclamations;

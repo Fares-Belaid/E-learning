@@ -1,6 +1,5 @@
 package com.pfa.elearning.dto;
 
-import java.time.Instant;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,9 +17,7 @@ public class AvisDto {
 	private String titre;
 	
 	private String description;
-	
-	private Instant dateCreation;
-	
+		
 	private String rating;
 	
 	@JsonIgnore
@@ -29,7 +26,7 @@ public class AvisDto {
 	private List<CommentaireDto> commentaires;
 	
 	
-	public AvisDto fromEntity(Avis avis) {
+	public static AvisDto fromEntity(Avis avis) {
 		if(avis == null) {
 			
 			//to do throw an exception
@@ -40,24 +37,23 @@ public class AvisDto {
 				.idAvis(avis.getIdAvis())
 				.titre(avis.getTitre())
 				.description(avis.getDescription())
-				.dateCreation(avis.getDateCreation())
 				.rating(avis.getRating())
 				.build();
 	}
 	
-	public Avis toEntity(AvisDto avisDto) {
+	public static Avis toEntity(AvisDto avisDto) {
 		if(avisDto == null) {
 			
 			//to do throw an exception
 			
 		}
 		
-		return Avis.builder()
-				.idAvis(avisDto.getIdAvis())
-				.titre(avisDto.getTitre())
-				.description(avisDto.getDescription())
-				.dateCreation(avisDto.getDateCreation())
-				.rating(avisDto.getRating())
-				.build();
+		Avis avis = new Avis();
+		avis.setIdAvis(avisDto.getIdAvis());
+		avis.setTitre(avisDto.getTitre());
+		avis.setDescription(avisDto.getDescription());
+		avis.setRating(avisDto.getRating());
+		
+		return avis;
 	}
 }
