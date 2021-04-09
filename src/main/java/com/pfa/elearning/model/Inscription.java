@@ -33,7 +33,7 @@ public class Inscription {
 	
 	@CreatedDate
 	@Column(nullable = false)
-	private Instant DateInscri;
+	private Instant dateInscri;
 	
 	@OneToMany(mappedBy = "inscriptions")
 	private List<Etudiant> etudiants;

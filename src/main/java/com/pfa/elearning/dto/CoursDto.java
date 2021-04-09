@@ -2,6 +2,7 @@ package com.pfa.elearning.dto;
 
 
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class CoursDto {
 	@JsonIgnore
 	private Instant dateCrea;
 	
-	private float prix;
+	private BigDecimal prix;
 	
 	private String categorie;
 	@JsonIgnore

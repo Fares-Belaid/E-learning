@@ -1,5 +1,6 @@
 package com.pfa.elearning.model;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class Cours {
 	private Instant dateCrea;
 	
 	@Column
-	private float prix;
+	private BigDecimal prix;
 	
 	@Column
 	private String categorie;
