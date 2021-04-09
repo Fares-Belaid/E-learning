@@ -2,7 +2,7 @@ package com.pfa.elearning.dto;
 
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +15,6 @@ public class FormateurDto extends UtilisateurDto{
 	private String grade;
 	
 	private String specialite;
-	
+	@JsonIgnore
 	private List<CoursDto> cours;
 }
