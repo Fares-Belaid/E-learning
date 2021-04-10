@@ -21,6 +21,8 @@ public class UtilisateurDto {
 	private String nom;
 
 	private String email;
+	
+	private String motDePasse;
 
 	private String photo;
 
@@ -40,6 +42,7 @@ public class UtilisateurDto {
 				.idUtilisateur(utilisateur.getIdUtilisateur())
 				.nom(utilisateur.getNom())
 				.email(utilisateur.getEmail())
+				.motDePasse(utilisateur.getPassword())
 				.photo(utilisateur.getPhoto())
 				.role(utilisateur.getRole())
 				.build();
@@ -56,6 +59,7 @@ public class UtilisateurDto {
 		utilisateur.setIdUtilisateur(utilisateurDto.getIdUtilisateur());
 		utilisateur.setNom(utilisateurDto.getNom());
 		utilisateur.setEmail(utilisateurDto.getEmail());
+		utilisateur.setPassword(utilisateurDto.getMotDePasse());
 		utilisateur.setPhoto(utilisateurDto.getPhoto());
 		utilisateur.setRole(utilisateurDto.getRole());
 
