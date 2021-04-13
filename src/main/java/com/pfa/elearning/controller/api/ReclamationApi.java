@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.pfa.elearning.utils.Constants;
 import com.pfa.elearning.dto.ReclamationDto;
+import static com.pfa.elearning.utils.Constants.APP_ROOT;
+
+public interface ReclamationApi {
 
 
-public interface ReclamationApi extends Constants {
-
-
-	@PostMapping(value = APP_ROOT +"/reclamations/create")
+	@PostMapping(value = APP_ROOT +"/reclamations/create", consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE,produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	ReclamationDto save(@RequestBody ReclamationDto dto);
 
-	@GetMapping(value = APP_ROOT +"/reclamations/{idReclamation}")
+	@GetMapping(value = APP_ROOT +"/reclamations/{idReclamation}", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	ReclamationDto findById(@PathVariable("idReclamation") Long id);
 
-	@GetMapping(value = APP_ROOT +"/reclamations/all")
+	@GetMapping(value = APP_ROOT +"/reclamations/all", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	List<ReclamationDto> findAll();
 	
 	@DeleteMapping(value = APP_ROOT +"/reclamations/delete/{id}")
