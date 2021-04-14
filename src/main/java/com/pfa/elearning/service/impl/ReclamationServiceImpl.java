@@ -33,7 +33,7 @@ public class ReclamationServiceImpl implements IReclamationService {
 		List<String> errors = ReclamationValidator.validate(dto);
 		if(!errors.isEmpty()) {
 			log.error("reclamation not valid",dto);
-			throw new InvalidEntityException("La reclamation ,'est pas valide", ErrorCodes.RECLAMATION_NOT_VALID,errors);
+			throw new InvalidEntityException("La reclamation n'est pas valide", ErrorCodes.RECLAMATION_NOT_VALID,errors);
 		}
 		return ReclamationDto.fromEntity(reclamationRepository.save(ReclamationDto.toEntity(dto)));
 	}
