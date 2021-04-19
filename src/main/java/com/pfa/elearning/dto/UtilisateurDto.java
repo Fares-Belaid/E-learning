@@ -7,12 +7,14 @@ import javax.persistence.MappedSuperclass;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pfa.elearning.model.Utilisateur;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @MappedSuperclass
 @Data
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UtilisateurDto {
 
 	
@@ -37,7 +39,18 @@ public class UtilisateurDto {
 			//to do throw an exception
 			
 		}
+	
+		UtilisateurDto utilisateurDto = new UtilisateurDto();
+		utilisateurDto.setIdUtilisateur(utilisateur.getIdUtilisateur());
+		utilisateurDto.setNom(utilisateur.getNom());
+		utilisateurDto.setEmail(utilisateur.getEmail());
+		utilisateurDto.setMotDePasse(utilisateur.getPassword());
+		utilisateurDto.setPhoto(utilisateur.getPhoto());
+		utilisateurDto.setRole(utilisateur.getRole());
 		
+		return utilisateurDto;
+		
+		/*		
 		return UtilisateurDto.builder()
 				.idUtilisateur(utilisateur.getIdUtilisateur())
 				.nom(utilisateur.getNom())
@@ -45,7 +58,9 @@ public class UtilisateurDto {
 				.motDePasse(utilisateur.getPassword())
 				.photo(utilisateur.getPhoto())
 				.role(utilisateur.getRole())
-				.build();
+				.build();     
+				
+		*/
 	}
 	
 	public static Utilisateur toEntity(UtilisateurDto utilisateurDto) {

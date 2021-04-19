@@ -3,7 +3,6 @@ package com.pfa.elearning.validator;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.util.NumberUtils;
 import org.springframework.util.StringUtils;
 
 import com.pfa.elearning.dto.QuizDto;
