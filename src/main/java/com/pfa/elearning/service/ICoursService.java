@@ -14,7 +14,7 @@ public interface ICoursService {
 
 	List<CoursDto> findByCategorie(String categorie);
 
-	List<CoursDto> findByTitre(String titreCours);
+	CoursDto findByTitre(String titreCours);
 
 	void delete(Long id);
 }

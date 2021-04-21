@@ -13,8 +13,7 @@ import lombok.NoArgsConstructor;
 
 @MappedSuperclass
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class UtilisateurDto {
 
 	
