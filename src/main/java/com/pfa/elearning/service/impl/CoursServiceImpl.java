@@ -13,7 +13,11 @@ import com.pfa.elearning.exception.EntityNotFoundException;
 import com.pfa.elearning.exception.ErrorCodes;
 import com.pfa.elearning.exception.InvalidEntityException;
 import com.pfa.elearning.model.Cours;
+import com.pfa.elearning.model.Formateur;
 import com.pfa.elearning.repository.CoursRepository;
+import com.pfa.elearning.repository.FormateurRepository;
+import com.pfa.elearning.repository.ModuleRepository;
+import com.pfa.elearning.repository.QuizRepository;
 import com.pfa.elearning.service.ICoursService;
 import com.pfa.elearning.validator.CoursValidator;
 
@@ -23,8 +27,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CoursServiceImpl implements ICoursService {
 
-	@Autowired
 	private CoursRepository coursRepository;
+	private FormateurRepository formateurRepository;
+
+	@Autowired
+	public CoursServiceImpl(CoursRepository coursRepository, QuizRepository quizRepository,
+			ModuleRepository moduleRepository, FormateurRepository formateurRepository) {
+
+		this.coursRepository = coursRepository;
+		this.formateurRepository = formateurRepository;
+	}
 
 	@Override
 	public CoursDto save(CoursDto dto) {
@@ -33,6 +45,14 @@ public class CoursServiceImpl implements ICoursService {
 			log.error("cours not valid", dto);
 			throw new InvalidEntityException("Le cours n'est pas valide", ErrorCodes.COURS_NOT_VALID, errors);
 		}
+
+		Optional<Formateur> formateur = formateurRepository.findById(dto.getFormateur().getIdUtilisateur());
+		if (formateur.isPresent()) {
+			log.warn("formateur with id {} was not found in the db ", dto.getFormateur().getIdUtilisateur());
+			throw new EntityNotFoundException("aucun formateur avec l'id " + dto.getFormateur().getIdUtilisateur()
+					+ " n'a etait trouver dans la BD ", ErrorCodes.FORMATEUR_NOT_FOUND);
+		}
+
 		return CoursDto.fromEntity(coursRepository.save(CoursDto.toEntity(dto)));
 	}
 

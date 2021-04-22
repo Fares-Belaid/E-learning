@@ -26,17 +26,18 @@ public class EtudiantDto extends UtilisateurDto {
 		}
 		
 		return EtudiantDto.builder()
-				.idUtilisateur(etudiantDto.getIdUtilisateur())
+				.idUtilisateur(UtilisateurDto.fromEntity(etudiantDto.getIdUtilisateur()))
 				.nom(etudiantDto.getNom())
 				.email(etudiantDto.getEmail())
 				.motDePasse(etudiantDto.getMotDePasse())
 				.photo(etudiantDto.getPhoto())
 				.role(etudiantDto.getRole())
+				.niveau(etudiantDto.getNiveau())
 				.build();
 	}
 	
-	
 	/*
+	
 	public static Etudiant toEntity(EtudiantDto etudiantDto) {
 		if(etudiantDto == null) {
 			

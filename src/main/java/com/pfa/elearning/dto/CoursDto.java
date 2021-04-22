@@ -30,15 +30,15 @@ public class CoursDto {
 	private BigDecimal prix;
 	
 	private String categorie;
-	@JsonIgnore
+	
 	private FormateurDto formateur;
 	@JsonIgnore
 	private InscriptionDto inscri;
-	@JsonIgnore
+	
 	private List<RessourcesDto> ressources;
-	@JsonIgnore
+	
 	private List<QuizDto> quiz;
-	@JsonIgnore
+	
 	private List<ModuleDto> modules ;
 	
 	public static CoursDto fromEntity(Cours cours) {
@@ -55,6 +55,10 @@ public class CoursDto {
 				.sommaire(cours.getSommaire())
 				.prix(cours.getPrix())
 				.categorie(cours.getCategorie())
+				/*
+				.formateur(FormateurDto.fromEntity(cours.getFormateur()))
+				.ressource(RessourcesDto.fromEntity())
+				*/
 				.build();
 	}
 	
@@ -72,7 +76,9 @@ public class CoursDto {
 		cours.setSommaire(coursDto.getSommaire());
 		cours.setPrix(coursDto.getPrix());
 		cours.setCategorie(coursDto.getCategorie());
-		
+		/*
+		cours.setFormateur(coursDto.getFormateur());
+		*/
 		return cours;
 	}
 	
