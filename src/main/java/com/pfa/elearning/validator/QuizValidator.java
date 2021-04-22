@@ -22,11 +22,17 @@ public class QuizValidator {
 		if (!StringUtils.hasLength(quizDto.getDescription())) {
 			errors.add("Veuillez renseigner la description de quiz");
 		}
-		/*
-		if (NumberUtils.(quizDto.getScoreMin())) {
+		
+		if (!StringUtils.hasLength(String.valueOf(quizDto.getScoreMin()))) {
 			errors.add("Veuillez renseigner le score ");
 		}
-*/
+		if (quizDto.getCours() == null ) {
+			errors.add("Veuillez renseigner le cours de quiz");
+		}
+		
+		if (quizDto.getQuestionQuizs() == null ) {
+			errors.add("Veuillez renseigner les questions de quiz");
+		}
 		return errors;
 
 	}

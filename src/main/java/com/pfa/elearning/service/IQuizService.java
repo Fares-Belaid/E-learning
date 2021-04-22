@@ -10,6 +10,8 @@ public interface IQuizService {
 	
 	QuizDto findById(Long id);
 	
+	QuizDto findByNom(String nom);
+	
 	List<QuizDto> findAll();
 	
 	void delete(Long id);

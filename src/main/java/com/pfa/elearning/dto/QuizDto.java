@@ -2,7 +2,6 @@ package com.pfa.elearning.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pfa.elearning.model.Quiz;
 
 import lombok.Builder;
@@ -20,9 +19,9 @@ public class QuizDto {
 	private String description;
 
 	private Integer scoreMin;
-	@JsonIgnore
+	
 	private CoursDto cours;
-	@JsonIgnore
+
 	private List<QuestionQuizDto> questionQuizs;
 	
 
@@ -38,6 +37,10 @@ public class QuizDto {
 				.nom(quiz.getNom())
 				.description(quiz.getDescription())
 				.scoreMin(quiz.getScoreMin())
+				.cours(CoursDto.fromEntity(quiz.getCours()))
+				
+				.questionQuiz(QuestionQuizDto.fromEntity(quiz.getQuestionQuizs()))
+				
 				.build();
 	}
 	
@@ -53,7 +56,10 @@ public class QuizDto {
 		quiz.setNom(quizDto.getNom());
 		quiz.setDescription(quizDto.getDescription());
 		quiz.setScoreMin(quizDto.getScoreMin());
-		
+		/*
+		quiz.setCours(quizDto.getCours());
+		quiz.setQuestionQuizs(quizDto.getQuestionQuizs());
+		*/
 		return quiz;
 	}
 }

@@ -24,7 +24,7 @@ public class QuestionQuizDto {
 	private String explication;
 	@JsonIgnore
 	private QuizDto quiz;
-	@JsonIgnore
+	
 	private ReponseDto reponse2;
 	
 	
@@ -41,6 +41,7 @@ public class QuestionQuizDto {
 				.question(questionQuiz.getQuestion())
 				.reponse(questionQuiz.getReponse())
 				.explication(questionQuiz.getExplication())
+				.reponse2(ReponseDto.fromEntity(questionQuiz.getReponse2()))
 				.build();
 	}
 	
@@ -57,7 +58,7 @@ public class QuestionQuizDto {
 		questionQuiz.setQuestion(questionQuizDto.getQuestion());
 		questionQuiz.setReponse(questionQuizDto.getReponse());
 		questionQuiz.setExplication(questionQuizDto.getExplication());
-		
+		questionQuiz.setReponse2(questionQuizDto.getReponse2());
 		return questionQuiz;
 	}
 }

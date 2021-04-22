@@ -47,7 +47,7 @@ public class CoursServiceImpl implements ICoursService {
 		}
 
 		Optional<Formateur> formateur = formateurRepository.findById(dto.getFormateur().getIdUtilisateur());
-		if (formateur.isPresent()) {
+		if (formateur.isEmpty()) {
 			log.warn("formateur with id {} was not found in the db ", dto.getFormateur().getIdUtilisateur());
 			throw new EntityNotFoundException("aucun formateur avec l'id " + dto.getFormateur().getIdUtilisateur()
 					+ " n'a etait trouver dans la BD ", ErrorCodes.FORMATEUR_NOT_FOUND);
