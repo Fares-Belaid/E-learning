@@ -1,74 +1,80 @@
 package com.pfa.elearning.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.pfa.elearning.dto.ReclamationDto;
-import com.pfa.elearning.exception.EntityNotFoundException;
-import com.pfa.elearning.exception.ErrorCodes;
-import com.pfa.elearning.exception.InvalidEntityException;
+
 import com.pfa.elearning.model.Reclamation;
 import com.pfa.elearning.repository.ReclamationRepository;
 import com.pfa.elearning.service.IReclamationService;
-import com.pfa.elearning.validator.ReclamationValidator;
 
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Slf4j
+
 public class ReclamationServiceImpl implements IReclamationService {
 
-	@Autowired
-	private ReclamationRepository reclamationRepository;
-		
+	private final Logger log = LoggerFactory.getLogger(ReclamationServiceImpl.class);
 
-	@Override
-	public ReclamationDto save(ReclamationDto dto) {
-		
-		List<String> errors = ReclamationValidator.validate(dto);
-		if(!errors.isEmpty()) {
-			log.error("reclamation not valid",dto);
-			throw new InvalidEntityException("La reclamation n'est pas valide", ErrorCodes.RECLAMATION_NOT_VALID,errors);
-		}
-		return ReclamationDto.fromEntity(reclamationRepository.save(ReclamationDto.toEntity(dto)));
+	private final ReclamationRepository reclamationRepository;
+
+	public ReclamationServiceImpl(ReclamationRepository reclamationRepository) {
+		this.reclamationRepository = reclamationRepository;
 	}
 
 	@Override
-	public ReclamationDto findById(Long id) {
-		if(id== null) {
-			log.error("reclamation id is null");
-			return null;
-		}
-		Optional <Reclamation> reclamation = reclamationRepository.findById(id);
-		
-		ReclamationDto dto = ReclamationDto.fromEntity(reclamation.get());
-		
-		return Optional.of(dto).orElseThrow(() ->
-			new EntityNotFoundException(
-					"Aucune reclamation avec l'id = "+ id + " n'ete touve dans la BD",
-					ErrorCodes.RECLAMATION_NOT_FOUND));
+	public Reclamation save(Reclamation reclamation) {
+		log.debug("Request to save Reclamation : {}", reclamation);
+		return reclamationRepository.save(reclamation);
 	}
 
 	@Override
-	public List<ReclamationDto> findAll() {
-	
-		return reclamationRepository.findAll().stream().map(ReclamationDto::fromEntity).collect(Collectors.toList());
+	public Optional<Reclamation> partialUpdate(Reclamation reclamation) {
+		log.debug("Request to partially update Reclamation : {}", reclamation);
+
+		return reclamationRepository
+				.findById(reclamation.getId())
+				.map(
+						existingReclamation -> {
+							if (reclamation.getObjet() != null) {
+								existingReclamation.setObjet(reclamation.getObjet());
+							}
+							if (reclamation.getMessage() != null) {
+								existingReclamation.setMessage(reclamation.getMessage());
+							}
+
+							return existingReclamation;
+						}
+				)
+				.map(reclamationRepository::save);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Reclamation> findAll(Pageable pageable) {
+		log.debug("Request to get all Reclamations");
+		return reclamationRepository.findAll(pageable);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Reclamation> findOne(Long id) {
+		log.debug("Request to get Reclamation : {}", id);
+		return reclamationRepository.findById(id);
 	}
 
 	@Override
 	public void delete(Long id) {
-		
-		if (id == null) {
-			log.error("reclamation id is null");
-			return ;
-		}
+		log.debug("Request to delete Reclamation : {}", id);
 		reclamationRepository.deleteById(id);
-		
 	}
 
 	

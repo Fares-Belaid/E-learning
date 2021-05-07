@@ -1,16 +1,21 @@
 package com.pfa.elearning.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.pfa.elearning.dto.ReponseDto;
+import com.pfa.elearning.model.Reponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface IReponseService {
 
-	ReponseDto save(ReponseDto dto);
-	
-	ReponseDto findById(Long id);
-	
-	List<ReponseDto> findAll();
+	Reponse save(Reponse reponse);
+
+	Optional<Reponse> findById(Long id);
+
+	Page<Reponse> findAll(Pageable pageable);
 	
 	void delete(Long id);
+
+	Optional<Reponse> partialUpdate(Reponse reponse);
 }
