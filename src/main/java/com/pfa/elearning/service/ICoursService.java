@@ -11,7 +11,6 @@ public interface ICoursService {
 
 	Cours save(Cours cours);
 
-
 	Optional<Cours> partialUpdate(Cours cours);
 
 	Page<Cours> findAll(Pageable pageable);

@@ -8,19 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import com.pfa.elearning.exception.EntityNotFoundException;
-import com.pfa.elearning.exception.ErrorCodes;
-import com.pfa.elearning.exception.InvalidEntityException;
 import com.pfa.elearning.model.Cours;
-import com.pfa.elearning.model.Formateur;
 import com.pfa.elearning.repository.CoursRepository;
-import com.pfa.elearning.repository.FormateurRepository;
-import com.pfa.elearning.repository.ModuleRepository;
-import com.pfa.elearning.repository.QuizRepository;
 import com.pfa.elearning.service.ICoursService;
-import com.pfa.elearning.validator.CoursValidator;
 
 import lombok.extern.slf4j.Slf4j;
 
