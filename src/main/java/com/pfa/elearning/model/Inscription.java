@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -29,9 +30,10 @@ public class Inscription {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idInscription;
+	private Long id;
 	
 	@CreatedDate
+	@JsonIgnore
 	@Column(nullable = false)
 	private Instant dateInscri;
 	

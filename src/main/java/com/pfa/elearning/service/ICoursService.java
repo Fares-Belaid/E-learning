@@ -1,20 +1,22 @@
 package com.pfa.elearning.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.pfa.elearning.dto.CoursDto;
+import com.pfa.elearning.model.Cours;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ICoursService {
 
-	CoursDto save(CoursDto dto);
+	Cours save(Cours cours);
 
-	CoursDto findById(Long id);
 
-	List<CoursDto> findAll();
+	Optional<Cours> partialUpdate(Cours cours);
 
-	List<CoursDto> findByCategorie(String categorie);
+	Page<Cours> findAll(Pageable pageable);
 
-	CoursDto findByTitre(String titreCours);
+	Optional<Cours> findOne(Long id);
 
 	void delete(Long id);
 }

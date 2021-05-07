@@ -3,26 +3,23 @@ package com.pfa.elearning.validator;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pfa.elearning.model.Avis;
 import org.springframework.util.StringUtils;
 
-import com.pfa.elearning.dto.AvisDto;
 
 public class AvisValidator {
 
-	public static List<String> validate(AvisDto avisDto){
+	public static List<String> validate(Avis avis){
 		List<String> errors = new ArrayList<String>();
 		
-		if (avisDto == null) {
+		if (avis == null) {
 			errors.add("Veuillez renseigner les champs de l'avis");
 		}
-		
-		 if (!StringUtils.hasLength(avisDto.getTitre())) {
-			errors.add("Veuillez renseigner le titre");
-		}
-		 if (!StringUtils.hasLength(avisDto.getDescription())) {
+
+		 if (!StringUtils.hasLength(avis.getDescription())) {
 				errors.add("Veuillez renseigner la description");
 			}	
-		 if (!StringUtils.hasLength(avisDto.getRating())) {
+		 if (!StringUtils.hasLength(avis.getRating())) {
 				errors.add("Veuillez renseigner le rating");
 			}	
 

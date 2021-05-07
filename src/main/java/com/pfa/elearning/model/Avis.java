@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -31,15 +32,13 @@ public class Avis {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idAvis;
-	
-	@Column
-	private String titre;
+	private Long id;
 	
 	@Column
 	private String description;
 	
 	@CreatedDate
+	@JsonIgnore
 	@Column(nullable = false)
 	private Instant dateCreation;
 	

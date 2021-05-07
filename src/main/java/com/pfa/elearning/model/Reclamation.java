@@ -25,7 +25,7 @@ public class Reclamation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idReclamation;
+	private Long id;
 	
 	@Column
 	private String objet;

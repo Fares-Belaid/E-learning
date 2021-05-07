@@ -5,10 +5,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.pfa.elearning.dto.CoursDto;
 import com.pfa.elearning.exception.EntityNotFoundException;
 import com.pfa.elearning.exception.ErrorCodes;
 import com.pfa.elearning.exception.InvalidEntityException;
@@ -27,90 +28,59 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CoursServiceImpl implements ICoursService {
 
-	private CoursRepository coursRepository;
-	private FormateurRepository formateurRepository;
-
 	@Autowired
-	public CoursServiceImpl(CoursRepository coursRepository, QuizRepository quizRepository,
-			ModuleRepository moduleRepository, FormateurRepository formateurRepository) {
+	private CoursRepository coursRepository;
 
-		this.coursRepository = coursRepository;
-		this.formateurRepository = formateurRepository;
+
+	@Override
+	public Cours save(Cours cours) {
+		return coursRepository.save(cours);
 	}
 
 	@Override
-	public CoursDto save(CoursDto dto) {
-		List<String> errors = CoursValidator.validate(dto);
-		if (!errors.isEmpty()) {
-			log.error("cours not valid", dto);
-			throw new InvalidEntityException("Le cours n'est pas valide", ErrorCodes.COURS_NOT_VALID, errors);
-		}
+	public Optional<Cours> partialUpdate(Cours cours) {
 
-		Optional<Formateur> formateur = formateurRepository.findById(dto.getFormateur().getIdUtilisateur());
-		if (formateur.isEmpty()) {
-			log.warn("formateur with id {} was not found in the db ", dto.getFormateur().getIdUtilisateur());
-			throw new EntityNotFoundException("aucun formateur avec l'id " + dto.getFormateur().getIdUtilisateur()
-					+ " n'a etait trouver dans la BD ", ErrorCodes.FORMATEUR_NOT_FOUND);
-		}
+		return coursRepository
+				.findById(cours.getId())
+				.map(
+						existingCours -> {
+							if (cours.getTitreCours() != null) {
+								existingCours.setTitreCours(cours.getTitreCours());
+							}
+							if (cours.getDescription() != null) {
+								existingCours.setDescription(cours.getDescription());
+							}
+							if (cours.getSommaire() != null) {
+								existingCours.setSommaire(cours.getSommaire());
+							}
+							if (cours.getDateCrea() != null) {
+								existingCours.setDateCrea(cours.getDateCrea());
+							}
+							if (cours.getPrix() != null) {
+								existingCours.setPrix(cours.getPrix());
+							}
+							if (cours.getCategorie() != null) {
+								existingCours.setCategorie(cours.getCategorie());
+							}
 
-		return CoursDto.fromEntity(coursRepository.save(CoursDto.toEntity(dto)));
+							return existingCours;
+						}
+				)
+				.map(coursRepository::save);
 	}
 
 	@Override
-	public CoursDto findById(Long id) {
-		if (id == null) {
-			log.error("cours id is null");
-			return null;
-		}
-		Optional<Cours> cours = coursRepository.findById(id);
-
-		CoursDto dto = CoursDto.fromEntity(cours.get());
-
-		return Optional.of(dto).orElseThrow(() -> new EntityNotFoundException(
-				"Aucun cours avec l'id = " + id + " n'ete touve dans la BD", ErrorCodes.COURS_NOT_FOUND));
+	public Page<Cours> findAll(Pageable pageable) {
+		return coursRepository.findAll(pageable);
 	}
 
 	@Override
-	public List<CoursDto> findAll() {
-		return coursRepository.findAll().stream().map(CoursDto::fromEntity).collect(Collectors.toList());
-
+	public Optional<Cours> findOne(Long id) {
+		return coursRepository.findById(id);
 	}
 
 	@Override
 	public void delete(Long id) {
-		if (id == null) {
-			log.error("reclamation id is null");
-			return;
-		}
 		coursRepository.deleteById(id);
 	}
-
-	@Override
-	public List<CoursDto> findByCategorie(String categorie) {
-		if (StringUtils.hasLength(categorie)) {
-			log.error("category is null");
-			return null;
-		}
-		return coursRepository.findByCategorie(categorie).stream().map(CoursDto::fromEntity)
-				.collect(Collectors.toList());
-
-	}
-
-	@Override
-	public CoursDto findByTitre(String titreCours) {
-		if (StringUtils.hasLength(titreCours)) {
-			log.error("titre is null");
-			return null;
-		}
-		Optional<Cours> cours = coursRepository.findByTitre(titreCours);
-
-		CoursDto dto = CoursDto.fromEntity(cours.get());
-
-		return Optional.of(dto)
-				.orElseThrow(() -> new EntityNotFoundException(
-						"Aucun cours avec le titre = " + titreCours + " n'ete touve dans la BD",
-						ErrorCodes.COURS_NOT_FOUND));
-
-	}
-
 }

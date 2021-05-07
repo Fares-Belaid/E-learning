@@ -9,6 +9,6 @@ import com.pfa.elearning.model.Ressources;
 
 public interface RessourceRepository extends JpaRepository<Ressources, Long> {
 
-	Optional<Ressources> findByCour(Cours cour);
+	Optional<Ressources> findByCours(Cours cour);
 	
 }

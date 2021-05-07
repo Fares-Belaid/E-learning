@@ -14,6 +14,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,24 +25,31 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public class Utilisateur implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idUtilisateur;
+	private Long id;
 	
 	@Column
-	private String nom;
-	
+	private String firstName;
+
+	@Column
+	private String lastName;
+
+	@Column(length = 50, unique = true, nullable = false)
+	private String login;
+
 	@Column
 	private String email;
-	
+
+	@JsonIgnore
 	@Column
 	private String password;
 	
 	@Column
-	private String photo;
+	private String imageUrl;
 	
 	@Column
 	private String role;

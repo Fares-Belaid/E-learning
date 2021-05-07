@@ -1,21 +1,22 @@
 package com.pfa.elearning.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.pfa.elearning.dto.FormateurDto;
+import com.pfa.elearning.model.Etudiant;
 import com.pfa.elearning.model.Formateur;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface IFormateurService {
 
-	FormateurDto save(FormateurDto dto);
+	Formateur save(Formateur formateur);
 
-	FormateurDto findById(Long id);
+	Optional<Formateur> partialUpdate(Formateur formateur);
 
-	List<FormateurDto> findAll();
+	Page<Formateur> findAll(Pageable pageable);
 
-	List<Formateur> findBySpecialite(String specialite);
-
-	List<Formateur> findByGrade(String grade);
+	Optional<Formateur> findOne(Long id);
 
 	void delete(Long id);
 }

@@ -1,17 +1,20 @@
 package com.pfa.elearning.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.pfa.elearning.dto.CommentaireDto;
+import com.pfa.elearning.model.Commentaire;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ICommentaireService {
 
 
-	CommentaireDto save(CommentaireDto dto);
+	Commentaire save(Commentaire commentaire);
 	
-	CommentaireDto findById(Long id);
-	
-	List<CommentaireDto> findAll();
+	Optional<Commentaire> findById(Long id);
+
+	Page<Commentaire> findAll(Pageable pageable);
 	
 	void delete(Long id);
 }

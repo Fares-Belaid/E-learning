@@ -1,22 +1,19 @@
 package com.pfa.elearning.service.impl;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.pfa.elearning.dto.AvisDto;
-import com.pfa.elearning.exception.EntityNotFoundException;
-import com.pfa.elearning.exception.ErrorCodes;
-import com.pfa.elearning.exception.InvalidEntityException;
+
 import com.pfa.elearning.model.Avis;
 import com.pfa.elearning.repository.AvisRepository;
 import com.pfa.elearning.service.IAvisService;
-import com.pfa.elearning.validator.AvisValidator;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Slf4j
@@ -26,34 +23,20 @@ public class AvisServiceImpl implements IAvisService {
 	private AvisRepository avisRepository;
 
 	@Override
-	public AvisDto save(AvisDto dto) {
-		List<String> errors = AvisValidator.validate(dto);
-		if (!errors.isEmpty()) {
-			log.error("avis not valid", dto);
-			throw new InvalidEntityException("L'avis n'est pas valid ,'est pas valide", ErrorCodes.AVIS_NOT_VALID,
-					errors);
-		}
-		return AvisDto.fromEntity(avisRepository.save(AvisDto.toEntity(dto)));
+	public Avis save(Avis avis) {
+
+		return avisRepository.save(avis);
 	}
 
 	@Override
-	public AvisDto findById(Long id) {
+	public Optional<Avis> findById(Long id) {
 		if (id == null) {
 			log.error("avis id is null");
 			return null;
 		}
-		Optional<Avis> avis = avisRepository.findById(id);
-
-		AvisDto dto = AvisDto.fromEntity(avis.get());
-
-		return Optional.of(dto).orElseThrow(() -> new EntityNotFoundException(
-				"Aucun avis avec l'id = " + id + " n'etait trouver dans la BD", ErrorCodes.AVIS_NOT_FOUND));
+		return avisRepository.findById(id);
 	}
 
-	@Override
-	public List<AvisDto> findAll() {
-		return avisRepository.findAll().stream().map(AvisDto::fromEntity).collect(Collectors.toList());
-	}
 
 	@Override
 	public void delete(Long id) {
@@ -63,6 +46,35 @@ public class AvisServiceImpl implements IAvisService {
 		}
 		avisRepository.deleteById(id);
 
+	}
+
+	@Override
+	public Optional<Avis> partialUpdate(Avis avis) {
+		return avisRepository
+				.findById(avis.getId())
+				.map(
+						existingAvis -> {
+							if (avis.getDescription() != null) {
+								existingAvis.setDescription(avis.getDescription());
+							}
+							if (avis.getDateCreation() != null) {
+								existingAvis.setDateCreation(avis.getDateCreation());
+							}
+							if (avis.getRating() != null) {
+								existingAvis.setRating(avis.getRating());
+							}
+
+							return existingAvis;
+						}
+				)
+				.map(avisRepository::save);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Avis> findAll(Pageable pageable) {
+		log.debug("Request to get all Avis");
+		return avisRepository.findAll(pageable);
 	}
 
 }

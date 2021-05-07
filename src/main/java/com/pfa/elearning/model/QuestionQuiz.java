@@ -27,7 +27,10 @@ public class QuestionQuiz {
 	
 	@Column
 	private String titre;
-	
+
+	@Column
+	private String description;
+
 	@Column
 	private String question;
 	

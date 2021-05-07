@@ -26,9 +26,9 @@ public class Quiz {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idQuiz;
+	private Long id;
 	
-	private String nom;
+	private String titre;
 	
 	private String description;
 	

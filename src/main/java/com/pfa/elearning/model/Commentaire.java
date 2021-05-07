@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -34,6 +35,7 @@ public class Commentaire {
 	private String commentaire;
 	
 	@CreatedDate
+	@JsonIgnore
 	@Column(nullable = false)
 	private Instant dateCreation;
 	

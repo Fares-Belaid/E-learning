@@ -4,19 +4,15 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Data
 @NoArgsConstructor
@@ -24,11 +20,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Builder
 @Table
+@EntityListeners(AuditingEntityListener.class)
 public class Cours {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idCours;
+	private Long id;
 	
 	@Column
 	private String titreCours;
@@ -38,8 +35,10 @@ public class Cours {
 	
 	@Column
 	private String sommaire;
-	
-	@Column
+
+	@CreatedDate
+	@Column(name="creationDate", nullable = false)
+	@JsonIgnore
 	private Instant dateCrea;
 	
 	@Column
@@ -54,12 +53,12 @@ public class Cours {
 	@ManyToOne
 	private Inscription inscri;
 	
-	@OneToMany(mappedBy = "cour")
+	@OneToMany(mappedBy = "cours", cascade = CascadeType.ALL)
 	private List<Ressources> ressources;
 	
-	@OneToMany(mappedBy = "cours")
+	@OneToMany(mappedBy = "cours",cascade = CascadeType.ALL)
 	private List<Quiz> quiz;
 	
-	@OneToMany(mappedBy = "courses", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cours", cascade = CascadeType.ALL)
 	private List<Module> modules ;
 }

@@ -28,7 +28,7 @@ public class Reponse {
 	private Long idReponse;
 	
 	@Column
-	private String reponse;
+	private String correction;
 	
 	@OneToOne(mappedBy = "reponse2", cascade = CascadeType.ALL)
 	private QuestionQuiz questionQuiz;
