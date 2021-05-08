@@ -79,8 +79,9 @@ public class QuestionQuizServiceImpl implements IQuestionQuizService {
     }
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         log.debug("Request to delete QuestionQuiz : {}", id);
         questionQuizRepository.deleteById(id);
+        return false;
     }
 }

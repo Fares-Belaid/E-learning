@@ -76,8 +76,9 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
     }
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         log.debug("Request to delete Formateur : {}", id);
         utilisateurRepository.deleteById(id);
+        return false;
     }
 }

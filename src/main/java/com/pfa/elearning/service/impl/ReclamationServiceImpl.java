@@ -74,10 +74,11 @@ public class ReclamationServiceImpl implements IReclamationService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		log.debug("Request to delete Reclamation : {}", id);
 		reclamationRepository.deleteById(id);
-	}
+        return false;
+    }
 
 	
 }

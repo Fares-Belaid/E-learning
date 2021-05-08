@@ -40,9 +40,10 @@ public class ReponseServiceImpl implements IReponseService {
 
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         log.debug("Request to delete Solution : {}", id);
         reponseRepository.deleteById(id);
+        return false;
     }
 
     @Override

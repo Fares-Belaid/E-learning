@@ -1,6 +1,5 @@
 package com.pfa.elearning.service;
 
-import java.util.List;
 import java.util.Optional;
 
 
@@ -19,5 +18,5 @@ public interface IRessourceService {
 
 	Optional<Ressources> findOne(Long id);
 
-	void delete(Long id);
+	boolean delete(Long id);
 }

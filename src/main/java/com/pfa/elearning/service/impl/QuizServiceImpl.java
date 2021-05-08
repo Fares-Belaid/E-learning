@@ -1,8 +1,6 @@
 package com.pfa.elearning.service.impl;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +15,6 @@ import com.pfa.elearning.model.Quiz;
 import com.pfa.elearning.repository.QuizRepository;
 import com.pfa.elearning.service.IQuizService;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -79,9 +76,10 @@ public class QuizServiceImpl implements IQuizService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		log.debug("Request to delete Quiz : {}", id);
 		quizRepository.deleteById(id);
-	}
+        return false;
+    }
 
 }

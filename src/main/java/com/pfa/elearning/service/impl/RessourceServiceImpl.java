@@ -1,9 +1,7 @@
 package com.pfa.elearning.service.impl;
 
-import java.util.List;
 import java.util.Optional;
 
-import com.pfa.elearning.model.Cours;
 import com.pfa.elearning.model.Ressources;
 import com.pfa.elearning.repository.RessourceRepository;
 import com.pfa.elearning.service.IRessourceService;
@@ -74,9 +72,10 @@ public class RessourceServiceImpl implements IRessourceService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		log.debug("Request to delete Ressources : {}", id);
 		ressourcesRepository.deleteById(id);
-	}
+        return false;
+    }
 
 }
