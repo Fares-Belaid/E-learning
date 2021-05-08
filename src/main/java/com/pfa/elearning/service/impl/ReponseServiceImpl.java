@@ -24,7 +24,7 @@ public class ReponseServiceImpl implements IReponseService {
     @Override
     public Reponse save(Reponse reponse) {
         log.debug("Request to save Solution : {}", reponse);
-        return reponseRepository.save(reponse);    }
+        return reponseRepository.saveAndFlush(reponse);    }
 
     @Override
     public Optional<Reponse> findById(Long id) {

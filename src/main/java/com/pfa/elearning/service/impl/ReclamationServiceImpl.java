@@ -35,7 +35,7 @@ public class ReclamationServiceImpl implements IReclamationService {
 	@Override
 	public Reclamation save(Reclamation reclamation) {
 		log.debug("Request to save Reclamation : {}", reclamation);
-		return reclamationRepository.save(reclamation);
+		return reclamationRepository.saveAndFlush(reclamation);
 	}
 
 	@Override

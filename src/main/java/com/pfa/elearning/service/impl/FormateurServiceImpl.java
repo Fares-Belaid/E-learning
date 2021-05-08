@@ -25,7 +25,7 @@ public class FormateurServiceImpl implements IFormateurService {
     @Override
     public Formateur save(Formateur formateur) {
         log.debug("Request to save Formateur : {}", formateur);
-        return formateurRepository.save(formateur);
+        return formateurRepository.saveAndFlush(formateur);
     }
 
     @Override
@@ -80,9 +80,10 @@ public class FormateurServiceImpl implements IFormateurService {
     }
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         log.debug("Request to delete Formateur : {}", id);
         formateurRepository.deleteById(id);
+        return false;
     }
 
 }

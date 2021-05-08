@@ -26,7 +26,7 @@ public class ModuleServiceImpl implements IModuleService {
     @Override
     public Module save(Module module) {
         log.debug("Request to save Module : {}", module);
-        return moduleRepository.save(module);
+        return moduleRepository.saveAndFlush(module);
     }
 
     @Override
@@ -77,8 +77,9 @@ public class ModuleServiceImpl implements IModuleService {
     }
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         log.debug("Request to delete Module : {}", id);
         moduleRepository.deleteById(id);
+        return false;
     }
 }

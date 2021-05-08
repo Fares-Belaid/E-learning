@@ -27,7 +27,7 @@ public class InscriptionServiceImpl implements IInscriptionService {
     @Override
     public Inscription save(Inscription inscription) {
         log.debug("Request to save Inscription : {}", inscription);
-        return inscriptionRepository.save(inscription);
+        return inscriptionRepository.saveAndFlush(inscription);
     }
 
     @Override
@@ -63,8 +63,9 @@ public class InscriptionServiceImpl implements IInscriptionService {
     }
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         log.debug("Request to delete Inscription : {}", id);
         inscriptionRepository.deleteById(id);
+        return false;
     }
 }

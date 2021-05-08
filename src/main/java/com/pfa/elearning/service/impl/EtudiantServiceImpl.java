@@ -26,7 +26,7 @@ public class EtudiantServiceImpl implements IEtudiantService {
     @Override
     public Etudiant save(Etudiant etudiant) {
         log.debug("Request to save Etudiant : {}", etudiant);
-        return etudiantRepository.save(etudiant);
+        return etudiantRepository.saveAndFlush(etudiant);
     }
 
     @Override
@@ -77,8 +77,9 @@ public class EtudiantServiceImpl implements IEtudiantService {
     }
 
     @Override
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         log.debug("Request to delete Etudiant : {}", id);
         etudiantRepository.deleteById(id);
+        return false;
     }
 }

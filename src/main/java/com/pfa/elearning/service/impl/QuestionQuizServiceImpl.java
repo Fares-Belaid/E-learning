@@ -31,7 +31,7 @@ public class QuestionQuizServiceImpl implements IQuestionQuizService {
     @Override
     public QuestionQuiz save(QuestionQuiz questionQuiz) {
         log.debug("Request to save QuestionQuiz : {}", questionQuiz);
-        return questionQuizRepository.save(questionQuiz);
+        return questionQuizRepository.saveAndFlush(questionQuiz);
     }
 
     @Override

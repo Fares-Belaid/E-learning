@@ -26,7 +26,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
     @Override
     public Utilisateur save(Utilisateur utilisateur) {
         log.debug("Request to save Formateur : {}", utilisateur);
-        return utilisateurRepository.save(utilisateur);
+        return utilisateurRepository.saveAndFlush(utilisateur);
     }
 
     @Override

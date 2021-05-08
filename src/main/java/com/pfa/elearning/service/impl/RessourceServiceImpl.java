@@ -26,7 +26,7 @@ public class RessourceServiceImpl implements IRessourceService {
 	@Override
 	public Ressources save(Ressources ressources) {
 		log.debug("Request to save Ressources : {}", ressources);
-		return ressourcesRepository.save(ressources);
+		return ressourcesRepository.saveAndFlush(ressources);
 	}
 
 	@Override
