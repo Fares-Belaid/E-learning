@@ -25,7 +25,7 @@ public class AvisServiceImpl implements IAvisService {
 	@Override
 	public Avis save(Avis avis) {
 
-		return avisRepository.save(avis);
+		return avisRepository.saveAndFlush(avis);
 	}
 
 	@Override

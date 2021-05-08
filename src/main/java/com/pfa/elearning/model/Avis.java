@@ -37,9 +37,8 @@ public class Avis {
 	@Column
 	private String description;
 	
-	@CreatedDate
-	@JsonIgnore
-	@Column(nullable = false)
+
+	@Column
 	private Instant dateCreation;
 	
 	@Column

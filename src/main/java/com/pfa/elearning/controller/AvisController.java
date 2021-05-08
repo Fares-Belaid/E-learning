@@ -38,11 +38,13 @@ public class AvisController {
     @DeleteMapping("/remove")
     @ResponseBody
     public boolean deleteAvis(@RequestParam Long id) {
+
         return avisService.delete(id);
     }
 
     @PutMapping("/update")
     public Optional<Avis> updateAvis(@RequestBody  Avis avis) {
+
         return avisService.partialUpdate(avis);
     }
 }

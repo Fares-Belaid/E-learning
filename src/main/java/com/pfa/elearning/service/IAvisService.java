@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface IAvisService {
 
-	Avis save(Avis dto);
+	Avis save(Avis avis);
 	
 	Optional<Avis> findById(Long id);
 	
