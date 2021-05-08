@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CoursRepository extends JpaRepository<Cours, Long> {
 
-	Optional<Cours> findByCategorie(String categorie);
 
-	Optional<Cours> findByTitre(String titreCours);
 
 }

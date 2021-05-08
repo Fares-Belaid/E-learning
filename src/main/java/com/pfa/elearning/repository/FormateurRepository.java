@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FormateurRepository extends JpaRepository<Formateur, Long> {
 
-	Optional<Formateur> findBySpecialite(String specialite);
 
-	Optional<Formateur> findByGrade(String grade);
 
 }

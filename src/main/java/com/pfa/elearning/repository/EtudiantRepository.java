@@ -11,8 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
 
-	Optional<Etudiant> findByNiveau(String niveau);
 
-	Optional<Etudiant> getEtudiantByCours(Cours cours);
 
 }
