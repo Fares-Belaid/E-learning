@@ -12,7 +12,7 @@ public interface IAvisService {
 	
 	Optional<Avis> findById(Long id);
 	
-	void delete(Long id);
+	boolean delete(Long id);
 
 	Optional<Avis> partialUpdate(Avis avis);
 

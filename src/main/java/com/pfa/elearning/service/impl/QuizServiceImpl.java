@@ -29,6 +29,7 @@ public class QuizServiceImpl implements IQuizService {
 
 	private final QuizRepository quizRepository;
 
+	@Autowired
 	public QuizServiceImpl(QuizRepository quizRepository) {
 		this.quizRepository = quizRepository;
 	}

@@ -4,6 +4,7 @@ import com.pfa.elearning.model.Utilisateur;
 import com.pfa.elearning.repository.UtilisateurRepository;
 import com.pfa.elearning.service.IUtilisateurService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
 
     private final UtilisateurRepository utilisateurRepository;
 
+    @Autowired
     public UtilisateurServiceImpl(UtilisateurRepository utilisateurRepository) {
         this.utilisateurRepository = utilisateurRepository;
     }

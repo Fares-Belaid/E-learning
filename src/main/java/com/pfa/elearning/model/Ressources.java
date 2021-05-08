@@ -39,5 +39,5 @@ public class Ressources {
 	private String pdfContentType;
 	
 	@ManyToOne
-	private Cours cour;
+	private Cours cours;
 }

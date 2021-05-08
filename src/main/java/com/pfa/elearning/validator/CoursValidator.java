@@ -3,43 +3,43 @@ package com.pfa.elearning.validator;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pfa.elearning.model.Cours;
 import org.springframework.util.StringUtils;
 
-import com.pfa.elearning.dto.CoursDto;
 
 public class CoursValidator {
 
-	public static List<String> validate(CoursDto coursDto) {
+	public static List<String> validate(Cours cours) {
 		List<String> errors = new ArrayList<String>();
 
-		if (coursDto == null) {
+		if (cours == null) {
 			errors.add("Veuillez renseigner les champs du cours");
 		}
 
-		if (!StringUtils.hasLength(coursDto.getTitreCours())) {
+		if (!StringUtils.hasLength(cours.getTitreCours())) {
 			errors.add("Veuillez renseigner le titre de cours");
 		}
-		if (!StringUtils.hasLength(coursDto.getDescription())) {
+		if (!StringUtils.hasLength(cours.getDescription())) {
 			errors.add("Veuillez renseigner la description du cours");
 		}
-		if (!StringUtils.hasLength(coursDto.getSommaire())) {
+		if (!StringUtils.hasLength(cours.getSommaire())) {
 			errors.add("Veuillez renseigner le sommaire du cours");
 		}
-		if (coursDto.getPrix() == null) {
+		if (cours.getPrix() == null) {
 			errors.add("Veuillez renseigner le prix du cours");
 		}
-		if (!StringUtils.hasLength(coursDto.getCategorie())) {
+		if (!StringUtils.hasLength(cours.getCategorie())) {
 			errors.add("Veuillez renseigner la categorie du cours");
 		}
 
-		if (coursDto.getFormateur() == null) {
+		if (cours.getFormateur() == null) {
 			errors.add("Veuillez renseigner le formateur du cours");
 		}
 
-		if (coursDto.getQuiz() == null) {
+		if (cours.getQuiz() == null) {
 			errors.add("Veuillez renseigner le quiz du cours");
 		}
-		if (coursDto.getModules() == null) {
+		if (cours.getModules() == null) {
 			errors.add("Veuillez renseigner les modules du cours");
 		}
 

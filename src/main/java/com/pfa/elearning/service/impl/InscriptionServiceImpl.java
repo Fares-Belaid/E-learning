@@ -4,6 +4,7 @@ import com.pfa.elearning.model.Inscription;
 import com.pfa.elearning.repository.InscriptionRepository;
 import com.pfa.elearning.service.IInscriptionService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class InscriptionServiceImpl implements IInscriptionService {
 
     private final InscriptionRepository inscriptionRepository;
 
+    @Autowired
     public InscriptionServiceImpl(InscriptionRepository inscriptionRepository) {
         this.inscriptionRepository = inscriptionRepository;
     }

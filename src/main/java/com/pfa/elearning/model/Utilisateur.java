@@ -25,7 +25,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@MappedSuperclass
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Utilisateur implements Serializable {
 
 	@Id

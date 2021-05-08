@@ -7,6 +7,7 @@ import com.pfa.elearning.service.IQuestionQuizService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class QuestionQuizServiceImpl implements IQuestionQuizService {
 
     private final QuestionQuizRepository questionQuizRepository;
 
+    @Autowired
     public QuestionQuizServiceImpl(QuestionQuizRepository questionQuizRepository) {
         this.questionQuizRepository = questionQuizRepository;
     }

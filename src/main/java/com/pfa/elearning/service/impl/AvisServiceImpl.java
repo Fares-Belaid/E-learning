@@ -39,14 +39,15 @@ public class AvisServiceImpl implements IAvisService {
 
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		if (id == null) {
 			log.error("avis id is null");
-			return;
+            return false;
 		}
 		avisRepository.deleteById(id);
 
-	}
+        return false;
+    }
 
 	@Override
 	public Optional<Avis> partialUpdate(Avis avis) {

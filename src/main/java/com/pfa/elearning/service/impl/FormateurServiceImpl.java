@@ -4,6 +4,7 @@ import com.pfa.elearning.model.Formateur;
 import com.pfa.elearning.repository.FormateurRepository;
 import com.pfa.elearning.service.IFormateurService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class FormateurServiceImpl implements IFormateurService {
     private final FormateurRepository formateurRepository;
 
+    @Autowired
     public FormateurServiceImpl(FormateurRepository formateurRepository) {
         this.formateurRepository = formateurRepository;
     }
