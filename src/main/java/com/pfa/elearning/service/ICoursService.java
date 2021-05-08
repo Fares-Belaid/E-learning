@@ -1,6 +1,5 @@
 package com.pfa.elearning.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Cours;
@@ -17,5 +16,5 @@ public interface ICoursService {
 
 	Optional<Cours> findOne(Long id);
 
-	void delete(Long id);
+	boolean delete(Long id);
 }

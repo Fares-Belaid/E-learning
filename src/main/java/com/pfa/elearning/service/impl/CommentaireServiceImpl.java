@@ -1,8 +1,6 @@
 package com.pfa.elearning.service.impl;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,7 +23,7 @@ public class CommentaireServiceImpl implements ICommentaireService {
 	
 	@Override
 	public Commentaire save(Commentaire commentaire) {
-		return commentaireRepositroy.save(commentaire);
+		return commentaireRepositroy.saveAndFlush(commentaire);
 	}
 
 	@Override
@@ -38,18 +36,39 @@ public class CommentaireServiceImpl implements ICommentaireService {
 	}
 
 	@Override
+	public Optional<Commentaire> partialUpdate(Commentaire commentaire) {
+		return commentaireRepositroy
+				.findById(commentaire.getIdCommentaire())
+				.map(
+						existingCommentaire -> {
+							if (commentaire.getCommentaire() != null) {
+								existingCommentaire.setCommentaire(commentaire.getCommentaire());
+							}
+							if (commentaire.getDateCreation() != null) {
+								existingCommentaire.setDateCreation(commentaire.getDateCreation());
+							}
+
+
+							return existingCommentaire;
+						}
+				)
+				.map(commentaireRepositroy::save);
+	}
+
+	@Override
 	public Page<Commentaire> findAll(Pageable pageable) {
 		return commentaireRepositroy.findAll(pageable);
 	}
 
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		if (id == null) {
 			log.error("commentaire id is null");
-			return ;
+			return false;
 		}
-		commentaireRepositroy.deleteById(id);		
+		commentaireRepositroy.deleteById(id);
+		return false;
 	}
 
 }

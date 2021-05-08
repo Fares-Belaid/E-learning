@@ -1,8 +1,6 @@
 package com.pfa.elearning.service.impl;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,7 +23,7 @@ public class CoursServiceImpl implements ICoursService {
 
 	@Override
 	public Cours save(Cours cours) {
-		return coursRepository.save(cours);
+		return coursRepository.saveAndFlush(cours);
 	}
 
 	@Override
@@ -71,7 +69,8 @@ public class CoursServiceImpl implements ICoursService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		coursRepository.deleteById(id);
+		return false;
 	}
 }
