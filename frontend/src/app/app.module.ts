@@ -16,6 +16,14 @@ import { FormateurComponent } from './pages/gestion/formateur/formateur.componen
 import { EtudiantComponent } from './pages/gestion/etudiant/etudiant.component';
 import { CoursComponent } from './pages/gestion/cours/cours.component';
 import { ReclamationComponent } from './pages/gestion/reclamation/reclamation.component';
+import { AvisComponent } from './pages/gestion/avis/avis.component';
+import { CommentaireComponent } from './pages/gestion/commentaire/commentaire.component';
+import { InscriptionComponent } from './pages/gestion/inscription/inscription.component';
+import { ModuleComponent } from './pages/gestion/module/module.component';
+import { QuestionQuizComponent } from './pages/gestion/question-quiz/question-quiz.component';
+import { QuizComponent } from './pages/gestion/quiz/quiz.component';
+import { RessourcesComponent } from './pages/gestion/ressources/ressources.component';
+import { SolutionComponent } from './pages/gestion/solution/solution.component';
 
 
 @NgModule({
@@ -35,7 +43,15 @@ import { ReclamationComponent } from './pages/gestion/reclamation/reclamation.co
     FormateurComponent,
     EtudiantComponent,
     CoursComponent,
-    ReclamationComponent
+    ReclamationComponent,
+    AvisComponent,
+    CommentaireComponent,
+    InscriptionComponent,
+    ModuleComponent,
+    QuestionQuizComponent,
+    QuizComponent,
+    RessourcesComponent,
+    SolutionComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
