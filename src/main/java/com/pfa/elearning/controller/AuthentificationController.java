@@ -1,5 +1,5 @@
 package com.pfa.elearning.controller;
-
+/*
 import com.pfa.elearning.auth.AuthentificationRequest;
 import com.pfa.elearning.auth.AuthentificationResponse;
 import com.pfa.elearning.service.auth.ApplicationUserDetailsService;
@@ -37,3 +37,4 @@ public class AuthentificationController {
         return ResponseEntity.ok(AuthentificationResponse.builder().accesToken("dummy_access_token").build());
     }
 }
+*/

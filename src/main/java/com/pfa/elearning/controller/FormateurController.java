@@ -18,7 +18,6 @@ public class FormateurController {
     @Autowired
     private IFormateurService formateurService ;
 
-
     @GetMapping("/")
     @ResponseBody
     public Page<Formateur> getAllFormateur(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){

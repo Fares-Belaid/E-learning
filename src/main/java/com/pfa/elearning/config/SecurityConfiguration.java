@@ -1,5 +1,5 @@
 package com.pfa.elearning.config;
-
+/*
 import com.pfa.elearning.service.auth.ApplicationUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +24,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeRequests().antMatchers("/**/authenticate").permitAll()
+                .authorizeRequests().antMatchers("/**/
+
+/*
+import org.springframework.context.annotation.Bean;authenticate").permitAll()
                 .anyRequest().authenticated();
     }
 
@@ -37,3 +40,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 }
+*/

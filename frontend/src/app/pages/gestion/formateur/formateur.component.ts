@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Formateur } from 'src/app/models/formateur';
+import { FormateurService } from 'src/app/services/formateur.service';
 
 @Component({
   selector: 'app-formateur',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormateurComponent implements OnInit {
 
-  constructor() { }
+  formateurs: Formateur[];
+
+  constructor(private formateurService: FormateurService) { }
 
   ngOnInit(): void {
+    this.getAllFormateurs();
   }
+
+  private getAllFormateurs(){
+    this.formateurService.getFormateurList().subscribe(data => {
+      console.log(data);
+      
+      this.formateurs = data;
+
+      console.log(this.formateurs);
+    });
+  }
+
 
 }

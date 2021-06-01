@@ -24,6 +24,7 @@ import { QuestionQuizComponent } from './pages/gestion/question-quiz/question-qu
 import { QuizComponent } from './pages/gestion/quiz/quiz.component';
 import { RessourcesComponent } from './pages/gestion/ressources/ressources.component';
 import { SolutionComponent } from './pages/gestion/solution/solution.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -34,7 +35,9 @@ import { SolutionComponent } from './pages/gestion/solution/solution.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
