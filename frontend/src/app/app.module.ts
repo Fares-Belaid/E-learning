@@ -26,6 +26,7 @@ import { RessourcesComponent } from './pages/gestion/ressources/ressources.compo
 import { SolutionComponent } from './pages/gestion/solution/solution.component';
 import { DataTablesModule } from 'angular-datatables';
 import { CreateFormateurComponent } from './pages/gestion/formateur/create-formateur/create-formateur.component';
+import { UpdateFormateurComponent } from './pages/gestion/formateur/update-formateur/update-formateur.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { CreateFormateurComponent } from './pages/gestion/formateur/create-forma
     QuizComponent,
     RessourcesComponent,
     SolutionComponent,
-    CreateFormateurComponent
+    CreateFormateurComponent,
+    UpdateFormateurComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

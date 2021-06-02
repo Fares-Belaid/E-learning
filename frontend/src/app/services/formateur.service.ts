@@ -18,6 +18,6 @@ export class FormateurService {
 
 
   CreateFormateur(formateur: Formateur): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`,formateur);
+    return this.httpClient.post(`${this.baseURL}add`,formateur);
   }
 }

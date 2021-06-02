@@ -42,7 +42,7 @@ public class FormateurController {
     }
 
     @PutMapping("/update")
-    public Optional<Formateur> updateAvis(@RequestBody Formateur formateur) {
+    public Optional<Formateur> updateFormateur(@RequestBody Formateur formateur) {
 
         return formateurService.partialUpdate(formateur);
     }

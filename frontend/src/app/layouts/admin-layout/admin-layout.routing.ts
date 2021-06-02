@@ -17,6 +17,8 @@ import { QuizComponent } from 'src/app/pages/gestion/quiz/quiz.component';
 import { QuestionQuizComponent } from 'src/app/pages/gestion/question-quiz/question-quiz.component';
 import { RessourcesComponent } from 'src/app/pages/gestion/ressources/ressources.component';
 import { SolutionComponent } from 'src/app/pages/gestion/solution/solution.component';
+import { CreateFormateurComponent } from 'src/app/pages/gestion/formateur/create-formateur/create-formateur.component';
+import { UpdateFormateurComponent } from 'src/app/pages/gestion/formateur/update-formateur/update-formateur.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -35,6 +37,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'questionQuiz',           component: QuestionQuizComponent },
     { path: 'ressources',           component: RessourcesComponent },
     { path: 'solution',           component: SolutionComponent },
-    { path: 'reclamation',           component: ReclamationComponent }
+    { path: 'reclamation',           component: ReclamationComponent },
+    { path: 'create-formateur',           component: CreateFormateurComponent },
+    { path: 'update-formateur',           component: UpdateFormateurComponent }
+
 
 ];
