@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Etudiant;
@@ -12,7 +13,7 @@ public interface IEtudiantService {
 
 	Optional<Etudiant> partialUpdate(Etudiant etudiant);
 
-	Page<Etudiant> findAll(Pageable pageable);
+	List<Etudiant> findAll();
 
 	Optional<Etudiant> findOne(Long id);
 

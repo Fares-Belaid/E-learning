@@ -1,5 +1,6 @@
 package com.pfa.elearning.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Ressources;
@@ -58,10 +59,9 @@ public class RessourceServiceImpl implements IRessourceService {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
-	public Page<Ressources> findAll(Pageable pageable) {
+	public List<Ressources> findAll() {
 		log.debug("Request to get all Ressources");
-		return ressourcesRepository.findAll(pageable);
+		return ressourcesRepository.findAll();
 	}
 
 	@Override

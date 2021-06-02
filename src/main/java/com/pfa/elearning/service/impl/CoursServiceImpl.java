@@ -1,5 +1,6 @@
 package com.pfa.elearning.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,8 +60,8 @@ public class CoursServiceImpl implements ICoursService {
 	}
 
 	@Override
-	public Page<Cours> findAll(Pageable pageable) {
-		return coursRepository.findAll(pageable);
+	public List<Cours> findAll() {
+		return coursRepository.findAll();
 	}
 
 	@Override

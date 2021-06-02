@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,8 +22,8 @@ public class RessourceController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Ressources> getAllAvis(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return ressourceService.findAll(PageRequest.of(page, size));
+    public List<Ressources> getAllAvis(){
+        return ressourceService.findAll();
     }
 
     @GetMapping("/find")

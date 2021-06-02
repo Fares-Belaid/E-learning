@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -18,8 +19,8 @@ public class ReponseController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Reponse> getAllReponse(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return reponseService.findAll(PageRequest.of(page, size));
+    public List<Reponse> getAllReponse(){
+        return reponseService.findAll();
     }
 
     @GetMapping("/find")

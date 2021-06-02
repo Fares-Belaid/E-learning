@@ -1,14 +1,13 @@
 package com.pfa.elearning.controller;
 
-import com.pfa.elearning.model.Avis;
 import com.pfa.elearning.model.Formateur;
-import com.pfa.elearning.service.IAvisService;
 import com.pfa.elearning.service.IFormateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,8 +19,8 @@ public class FormateurController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Formateur> getAllFormateur(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return formateurService.findAll(PageRequest.of(page, size));
+    public List<Formateur> getAllFormateur(){
+        return formateurService.findAll();
     }
 
     @GetMapping("/find")

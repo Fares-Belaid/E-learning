@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,8 +21,8 @@ public class CommentaireController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Commentaire> getAllCommentaires(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return commentaireService.findAll(PageRequest.of(page, size));
+    public List<Commentaire> getAllCommentaires(){
+        return commentaireService.findAll();
     }
 
     @GetMapping("/find")

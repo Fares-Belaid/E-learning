@@ -4,6 +4,7 @@ import com.pfa.elearning.model.Utilisateur;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface IUtilisateurService {
@@ -12,7 +13,7 @@ public interface IUtilisateurService {
 
     Optional<Utilisateur> partialUpdate(Utilisateur utilisateur);
 
-    Page<Utilisateur> findAll(Pageable pageable);
+    List<Utilisateur> findAll();
 
     Optional<Utilisateur> findOne(Long id);
 

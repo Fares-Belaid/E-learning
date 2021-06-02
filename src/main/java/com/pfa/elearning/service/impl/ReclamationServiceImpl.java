@@ -1,6 +1,7 @@
 package com.pfa.elearning.service.impl;
 
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -60,10 +61,9 @@ public class ReclamationServiceImpl implements IReclamationService {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
-	public Page<Reclamation> findAll(Pageable pageable) {
+	public List<Reclamation> findAll() {
 		log.debug("Request to get all Reclamations");
-		return reclamationRepository.findAll(pageable);
+		return reclamationRepository.findAll();
 	}
 
 	@Override

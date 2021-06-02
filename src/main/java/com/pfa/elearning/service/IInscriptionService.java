@@ -4,6 +4,7 @@ import com.pfa.elearning.model.Inscription;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface IInscriptionService {
@@ -12,7 +13,7 @@ public interface IInscriptionService {
 
     Optional<Inscription> partialUpdate(Inscription inscription);
 
-    Page<Inscription> findAll(Pageable pageable);
+    List<Inscription> findAll();
 
     Optional<Inscription> findOne(Long id);
 

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -18,8 +19,8 @@ public class ReclamationController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Reclamation> getAllReclamations(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return reclamationService.findAll(PageRequest.of(page, size));
+    public List<Reclamation> getAllReclamations(){
+        return reclamationService.findAll();
     }
 
     @GetMapping("/find")

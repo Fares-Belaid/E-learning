@@ -1,5 +1,6 @@
 package com.pfa.elearning.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -63,9 +64,9 @@ public class QuizServiceImpl implements IQuizService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Page<Quiz> findAll(Pageable pageable) {
+	public List<Quiz> findAll() {
 		log.debug("Request to get all Quizzes");
-		return quizRepository.findAll(pageable);
+		return quizRepository.findAll();
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.pfa.elearning.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +57,8 @@ public class CommentaireServiceImpl implements ICommentaireService {
 	}
 
 	@Override
-	public Page<Commentaire> findAll(Pageable pageable) {
-		return commentaireRepositroy.findAll(pageable);
+	public List<Commentaire> findAll() {
+		return commentaireRepositroy.findAll();
 	}
 
 

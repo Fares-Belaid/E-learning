@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Cours;
@@ -12,7 +13,7 @@ public interface ICoursService {
 
 	Optional<Cours> partialUpdate(Cours cours);
 
-	Page<Cours> findAll(Pageable pageable);
+	List<Cours> findAll();
 
 	Optional<Cours> findOne(Long id);
 

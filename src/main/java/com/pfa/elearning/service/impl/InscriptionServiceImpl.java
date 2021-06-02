@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -49,10 +50,9 @@ public class InscriptionServiceImpl implements IInscriptionService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public Page<Inscription> findAll(Pageable pageable) {
+    public List<Inscription> findAll() {
         log.debug("Request to get all Inscriptions");
-        return inscriptionRepository.findAll(pageable);
+        return inscriptionRepository.findAll();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Module;
@@ -12,7 +13,7 @@ public interface IModuleService {
 
 	Optional<Module> partialUpdate(Module module);
 
-	Page<Module> findAll(Pageable pageable);
+	List<Module> findAll();
 
 	Optional<Module> findOne(Long id);
 

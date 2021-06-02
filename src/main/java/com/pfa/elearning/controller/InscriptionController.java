@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 @RestController
 @RequestMapping("/inscription")
@@ -18,8 +19,8 @@ public class InscriptionController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Inscription> getAllInscriptions(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return inscriptionService.findAll(PageRequest.of(page, size));
+    public List<Inscription> getAllInscriptions(){
+        return inscriptionService.findAll();
     }
 
     @GetMapping("/find")

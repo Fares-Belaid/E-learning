@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -18,8 +19,8 @@ public class ModuleController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Module> getAllModule(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return moduleService.findAll(PageRequest.of(page, size));
+    public List<Module> getAllModule(){
+        return moduleService.findAll();
     }
 
     @GetMapping("/find")

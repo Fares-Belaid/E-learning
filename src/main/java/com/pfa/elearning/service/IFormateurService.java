@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Formateur;
@@ -12,7 +13,7 @@ public interface IFormateurService {
 
 	Optional<Formateur> partialUpdate(Formateur formateur);
 
-	Page<Formateur> findAll(Pageable pageable);
+	List<Formateur> findAll();
 
 	Optional<Formateur> findOne(Long id);
 

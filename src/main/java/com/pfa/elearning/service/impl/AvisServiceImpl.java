@@ -1,5 +1,6 @@
 package com.pfa.elearning.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,10 +73,9 @@ public class AvisServiceImpl implements IAvisService {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
-	public Page<Avis> findAll(Pageable pageable) {
+	public List<Avis> findAll() {
 		log.debug("Request to get all Avis");
-		return avisRepository.findAll(pageable);
+		return avisRepository.findAll();
 	}
 
 }

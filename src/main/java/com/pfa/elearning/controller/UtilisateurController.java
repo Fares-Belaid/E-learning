@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,8 +21,8 @@ public class UtilisateurController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Utilisateur> getAllUtilisateur(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return utilisateurService.findAll(PageRequest.of(page, size));
+    public List<Utilisateur> getAllUtilisateur(){
+        return utilisateurService.findAll();
     }
 
     @GetMapping("/find")

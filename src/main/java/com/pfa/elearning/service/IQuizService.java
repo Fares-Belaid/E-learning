@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Quiz;
@@ -12,7 +13,7 @@ public interface IQuizService {
 
 	Optional<Quiz> partialUpdate(Quiz quiz);
 
-	Page<Quiz> findAll(Pageable pageable);
+	List<Quiz> findAll();
 
 	Optional<Quiz> findOne(Long id);
 

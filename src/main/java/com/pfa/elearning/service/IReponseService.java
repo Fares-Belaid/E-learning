@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Reponse;
@@ -12,7 +13,7 @@ public interface IReponseService {
 
 	Optional<Reponse> findById(Long id);
 
-	Page<Reponse> findAll(Pageable pageable);
+	List<Reponse> findAll();
 	
 	boolean delete(Long id);
 

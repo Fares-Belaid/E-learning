@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -14,7 +15,7 @@ public interface IRessourceService {
 
 	Optional<Ressources> partialUpdate(Ressources ressources);
 
-	Page<Ressources> findAll(Pageable pageable);
+	List<Ressources> findAll();
 
 	Optional<Ressources> findOne(Long id);
 

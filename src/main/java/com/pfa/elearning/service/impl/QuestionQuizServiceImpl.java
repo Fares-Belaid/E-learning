@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -65,10 +66,9 @@ public class QuestionQuizServiceImpl implements IQuestionQuizService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public Page<QuestionQuiz> findAll(Pageable pageable) {
+    public List<QuestionQuiz> findAll() {
         log.debug("Request to get all QuestionQuizs");
-        return questionQuizRepository.findAll(pageable);
+        return questionQuizRepository.findAll();
     }
 
     @Override

@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,9 +34,9 @@ public class ReponseServiceImpl implements IReponseService {
     }
 
     @Override
-    public Page<Reponse> findAll(Pageable pageable) {
+    public List<Reponse> findAll() {
         log.debug("Request to get all Solutions");
-        return reponseRepository.findAll(pageable);
+        return reponseRepository.findAll();
     }
 
 

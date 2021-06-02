@@ -1,5 +1,6 @@
 package com.pfa.elearning.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.pfa.elearning.model.Reclamation;
@@ -12,7 +13,7 @@ public interface IReclamationService {
 
 	Optional<Reclamation> partialUpdate(Reclamation reclamation);
 
-	Page<Reclamation> findAll(Pageable pageable);
+	List<Reclamation> findAll();
 
 	Optional<Reclamation> findOne(Long id);
 

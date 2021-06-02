@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -20,8 +21,8 @@ public class AvisController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Avis> getAllAvis(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return avisService.findAll(PageRequest.of(page, size));
+    public List<Avis> getAllAvis(){
+        return avisService.findAll();
     }
 
     @GetMapping("/find")

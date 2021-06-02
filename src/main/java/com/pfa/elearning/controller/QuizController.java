@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,8 +20,8 @@ public class QuizController {
 
     @GetMapping("/")
     @ResponseBody
-    public Page<Quiz> getAllQuiz(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "5") int size){
-        return quizService.findAll(PageRequest.of(page, size));
+    public List<Quiz> getAllQuiz(){
+        return quizService.findAll();
     }
 
     @GetMapping("/find")

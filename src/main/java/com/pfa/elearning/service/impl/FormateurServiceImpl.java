@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -66,10 +67,9 @@ public class FormateurServiceImpl implements IFormateurService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public Page<Formateur> findAll(Pageable pageable) {
+    public List<Formateur> findAll() {
         log.debug("Request to get all Formateurs");
-        return formateurRepository.findAll(pageable);
+        return formateurRepository.findAll();
     }
 
     @Override
