@@ -31,6 +31,18 @@ export class FormateurComponent implements OnInit {
   updateFormateur(id: number){
     this.router.navigate(['update-formateur',id]);
   }
+  createFormateur(){
+    this.router.navigate(['create-formateur']);
+  }
+  deleteFormateur(id: number){
+    this.formateurService.deleteFormateur(id).subscribe(data => {
+      console.log(data);
+      this.getAllFormateurs();
+    })
+  }
 
 
+  formateurDetails(id: number){
+    this.router.navigate(['details-formateur',id]);
+  }
 }

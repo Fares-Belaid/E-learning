@@ -19,6 +19,7 @@ import { RessourcesComponent } from 'src/app/pages/gestion/ressources/ressources
 import { SolutionComponent } from 'src/app/pages/gestion/solution/solution.component';
 import { CreateFormateurComponent } from 'src/app/pages/gestion/formateur/create-formateur/create-formateur.component';
 import { UpdateFormateurComponent } from 'src/app/pages/gestion/formateur/update-formateur/update-formateur.component';
+import { FormateurDetailsComponent } from 'src/app/pages/gestion/formateur/formateur-details/formateur-details.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -39,7 +40,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'solution',           component: SolutionComponent },
     { path: 'reclamation',           component: ReclamationComponent },
     { path: 'create-formateur',           component: CreateFormateurComponent },
-    { path: 'update-formateur/:id',           component: UpdateFormateurComponent }
-
+    { path: 'update-formateur/:id',           component: UpdateFormateurComponent },
+    { path: 'details-formateur/:id',           component: FormateurDetailsComponent }
 
 ];

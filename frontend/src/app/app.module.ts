@@ -27,6 +27,7 @@ import { SolutionComponent } from './pages/gestion/solution/solution.component';
 import { DataTablesModule } from 'angular-datatables';
 import { CreateFormateurComponent } from './pages/gestion/formateur/create-formateur/create-formateur.component';
 import { UpdateFormateurComponent } from './pages/gestion/formateur/update-formateur/update-formateur.component';
+import { FormateurDetailsComponent } from './pages/gestion/formateur/formateur-details/formateur-details.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { UpdateFormateurComponent } from './pages/gestion/formateur/update-forma
     RessourcesComponent,
     SolutionComponent,
     CreateFormateurComponent,
-    UpdateFormateurComponent
+    UpdateFormateurComponent,
+    FormateurDetailsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

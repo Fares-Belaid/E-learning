@@ -28,4 +28,7 @@ export class FormateurService {
   updateFormateur(id: number, formateur: Formateur): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/${id}`, formateur);
   }
+  deleteFormateur(id: number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
 }
