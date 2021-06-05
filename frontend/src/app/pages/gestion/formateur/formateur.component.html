@@ -22,7 +22,7 @@
                   <th scope="col">Email</th>
                   <th scope="col">Grade</th>
                   <th scope="col">Specialité</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -33,6 +33,9 @@
                     <td> {{ formateur.email }}</td>
                     <td> {{ formateur.grade }}</td>
                     <td> {{ formateur.specialite }}</td>
+                    <td>
+                      <button (click) = "updateFormateur(formateur.id)" class="btn btn-info">Modifier</button>
+                    </td>
 
 
                 </tr>

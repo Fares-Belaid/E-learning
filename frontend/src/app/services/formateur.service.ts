@@ -20,4 +20,12 @@ export class FormateurService {
   CreateFormateur(formateur: Formateur): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}add`,formateur);
   }
+
+  getFormateurById(id: number): Observable<Formateur>{
+    return this.httpClient.get<Formateur>(`${this.baseURL}/${id}`);
+  }
+
+  updateFormateur(id: number, formateur: Formateur): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, formateur);
+  }
 }

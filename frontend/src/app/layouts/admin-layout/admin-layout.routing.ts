@@ -39,7 +39,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'solution',           component: SolutionComponent },
     { path: 'reclamation',           component: ReclamationComponent },
     { path: 'create-formateur',           component: CreateFormateurComponent },
-    { path: 'update-formateur',           component: UpdateFormateurComponent }
+    { path: 'update-formateur/:id',           component: UpdateFormateurComponent }
 
 
 ];
