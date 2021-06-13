@@ -22,13 +22,13 @@ export class FormateurService {
   }
 
   getFormateurById(id: number): Observable<Formateur>{
-    return this.httpClient.get<Formateur>(`${this.baseURL}/${id}`);
+    return this.httpClient.get<Formateur>(`${this.baseURL}find?id=${id}`);
   }
 
   updateFormateur(id: number, formateur: Formateur): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`, formateur);
+    return this.httpClient.put(`${this.baseURL}update?id=${id}`, formateur);
   }
   deleteFormateur(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}/${id}`);
+    return this.httpClient.delete(`${this.baseURL}remove?id=${id}`);
   }
 }

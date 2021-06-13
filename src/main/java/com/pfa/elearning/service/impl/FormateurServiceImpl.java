@@ -26,7 +26,7 @@ public class FormateurServiceImpl implements IFormateurService {
     @Override
     public Formateur save(Formateur formateur) {
         log.debug("Request to save Formateur : {}", formateur);
-        return formateurRepository.saveAndFlush(formateur);
+        return formateurRepository.save(formateur);
     }
 
     @Override
