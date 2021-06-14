@@ -20,6 +20,9 @@ import { SolutionComponent } from 'src/app/pages/gestion/solution/solution.compo
 import { CreateFormateurComponent } from 'src/app/pages/gestion/formateur/create-formateur/create-formateur.component';
 import { UpdateFormateurComponent } from 'src/app/pages/gestion/formateur/update-formateur/update-formateur.component';
 import { FormateurDetailsComponent } from 'src/app/pages/gestion/formateur/formateur-details/formateur-details.component';
+import { HomeComponent } from 'src/app/client/home/home.component';
+import { CoursesComponent } from 'src/app/client/courses/courses.component';
+import { CoursesItemComponent } from 'src/app/client/courses-item/courses-item.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -41,6 +44,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reclamation',           component: ReclamationComponent },
     { path: 'create-formateur',           component: CreateFormateurComponent },
     { path: 'update-formateur/:id',           component: UpdateFormateurComponent },
-    { path: 'details-formateur/:id',           component: FormateurDetailsComponent }
+    { path: 'details-formateur/:id',           component: FormateurDetailsComponent },
+    { path: 'home',           component: HomeComponent },
+    { path: 'courses',           component: CoursesComponent }
+
 
 ];

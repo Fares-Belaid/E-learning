@@ -28,6 +28,10 @@ import { DataTablesModule } from 'angular-datatables';
 import { CreateFormateurComponent } from './pages/gestion/formateur/create-formateur/create-formateur.component';
 import { UpdateFormateurComponent } from './pages/gestion/formateur/update-formateur/update-formateur.component';
 import { FormateurDetailsComponent } from './pages/gestion/formateur/formateur-details/formateur-details.component';
+import { HomeComponent } from './client/home/home.component';
+import { CoursesComponent } from './client/courses/courses.component';
+import { CoursesItemComponent } from './client/courses-item/courses-item.component';
+import { TruncatePipe } from './shared/pipes/truncate.pipe';
 
 @NgModule({
   imports: [
@@ -59,7 +63,11 @@ import { FormateurDetailsComponent } from './pages/gestion/formateur/formateur-d
     SolutionComponent,
     CreateFormateurComponent,
     UpdateFormateurComponent,
-    FormateurDetailsComponent
+    FormateurDetailsComponent,
+    HomeComponent,
+    CoursesComponent,
+    CoursesItemComponent,
+    TruncatePipe
   ],
   providers: [],
   bootstrap: [AppComponent]
