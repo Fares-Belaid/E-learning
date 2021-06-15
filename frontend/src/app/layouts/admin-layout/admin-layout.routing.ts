@@ -45,8 +45,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'create-formateur',           component: CreateFormateurComponent },
     { path: 'update-formateur/:id',           component: UpdateFormateurComponent },
     { path: 'details-formateur/:id',           component: FormateurDetailsComponent },
-    { path: 'home',           component: HomeComponent },
-    { path: 'courses',           component: CoursesComponent }
+
 
 
 ];

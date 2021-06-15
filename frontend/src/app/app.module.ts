@@ -67,7 +67,7 @@ import { TruncatePipe } from './shared/pipes/truncate.pipe';
     HomeComponent,
     CoursesComponent,
     CoursesItemComponent,
-    TruncatePipe
+    TruncatePipe,
   ],
   providers: [],
   bootstrap: [AppComponent]
