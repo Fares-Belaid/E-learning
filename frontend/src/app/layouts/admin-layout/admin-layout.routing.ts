@@ -23,6 +23,9 @@ import { FormateurDetailsComponent } from 'src/app/pages/gestion/formateur/forma
 import { HomeComponent } from 'src/app/client/home/home.component';
 import { CoursesComponent } from 'src/app/client/courses/courses.component';
 import { CoursesItemComponent } from 'src/app/client/courses-item/courses-item.component';
+import { CreateEtudiantComponent } from 'src/app/pages/gestion/etudiant/create-etudiant/create-etudiant.component';
+import { UpdateEtudiantComponent } from 'src/app/pages/gestion/etudiant/update-etudiant/update-etudiant.component';
+import { EtudiantDetailsComponent } from 'src/app/pages/gestion/etudiant/etudiant-details/etudiant-details.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -45,7 +48,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'create-formateur',           component: CreateFormateurComponent },
     { path: 'update-formateur/:id',           component: UpdateFormateurComponent },
     { path: 'details-formateur/:id',           component: FormateurDetailsComponent },
-
+    { path: 'create-etudiant',           component: CreateEtudiantComponent },
+    { path: 'update-etudiant/:id',           component: UpdateEtudiantComponent },
+    { path: 'details-etudiant/:id',           component: EtudiantDetailsComponent },
 
 
 ];
