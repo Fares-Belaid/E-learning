@@ -44,7 +44,7 @@ public class EtudiantController {
     }
 
     @PutMapping("/update")
-    public Optional<Etudiant> updateAvis(@RequestBody  Etudiant etudiant) {
+    public Optional<Etudiant> updateEtudiant(@RequestBody  Etudiant etudiant) {
 
         return etudiantService.partialUpdate(etudiant);
     }

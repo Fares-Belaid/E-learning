@@ -27,7 +27,7 @@ public class EtudiantServiceImpl implements IEtudiantService {
     @Override
     public Etudiant save(Etudiant etudiant) {
         log.debug("Request to save Etudiant : {}", etudiant);
-        return etudiantRepository.saveAndFlush(etudiant);
+        return etudiantRepository.save(etudiant);
     }
 
     @Override

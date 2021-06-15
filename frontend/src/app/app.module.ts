@@ -35,6 +35,11 @@ import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { CreateEtudiantComponent } from './pages/gestion/etudiant/create-etudiant/create-etudiant.component';
 import { EtudiantDetailsComponent } from './pages/gestion/etudiant/etudiant-details/etudiant-details.component';
 import { UpdateEtudiantComponent } from './pages/gestion/etudiant/update-etudiant/update-etudiant.component';
+import { AboutComponent } from './client/about/about.component';
+import { TeacherComponent } from './client/teacher/teacher.component';
+import { BlogComponent } from './client/blog/blog.component';
+import { EventsComponent } from './client/events/events.component';
+import { ContactComponent } from './client/contact/contact.component';
 
 @NgModule({
   imports: [
@@ -74,6 +79,11 @@ import { UpdateEtudiantComponent } from './pages/gestion/etudiant/update-etudian
     CreateEtudiantComponent,
     EtudiantDetailsComponent,
     UpdateEtudiantComponent,
+    AboutComponent,
+    TeacherComponent,
+    BlogComponent,
+    EventsComponent,
+    ContactComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
