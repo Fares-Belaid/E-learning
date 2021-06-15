@@ -13,16 +13,16 @@ export class CoursService {
   getCours():any{
     this.cours=[{
       id:1,
-      name:"Programmation Java",
-      description:"***************************************************************************************************************",
-      image:"/assets/images/java.jpg",
+      name:" Java",
+      description:" La technologie Java définit à la fois un langage de programmation orienté objet et une plateforme informatique. ",
+      image:"/assets/images/java.png",
       price:150,
       category:"Informatique",
       favorite:true
     },{
       id:2,
       name:"Spring boot",
-      description:"*****************************",
+      description:"Spring est un framework open source pour construire et définir l'infrastructure d'une application Java",
       image:"/assets/images/spring-boot-logo.png",
       price:250,
       category:"Informatique",
@@ -30,7 +30,7 @@ export class CoursService {
     },{
       id:3,
       name:"PHP",
-      description:"*****************************",
+      description:"PHP: Hypertext Preprocessor, plus connu sous son sigle PHP, est un langage de programmation libre, principalement utilisé pour produire des pages Web dynamiques ",
       image:"/assets/images/php.png",
       price:50,
       category:"Informatique",
